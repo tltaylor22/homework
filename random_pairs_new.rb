@@ -2,7 +2,6 @@ def create_random_pairs(names) # create the function create_random_pairs. names 
 	array = [] # creates an empty array to hold the pushed items (names)
 	array_paired_names = names.shuffle.each_slice(2) # creating the variable array_paired_names equal to names that we are passing thru, shuffling names and then slicing them into pairs.
 	array_paired_names.each do |pair| # iterating through the array with the variable pair (singular because it is looking at one pair each time through)
-	puts pair.inspect # prints the output
 		if pair.length == 2 # if the lingth of pairs is equal to 2, then do this
 			array.push pair # pushes the names into the holding array
 		else
