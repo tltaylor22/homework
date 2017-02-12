@@ -1,7 +1,14 @@
 def kata_again(number)
-	number = 1
-	100.times do
-		number = number + 1
-		
-	end
+	number
+		if number % 15 == 0
+			"mined minds"
+		elsif
+			number % 3 == 0
+			"mined"
+		elsif
+			number % 5 == 0
+			"minds"				
+		else
+			number
+		end
 end

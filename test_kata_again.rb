@@ -3,14 +3,24 @@ require_relative 'kata_again.rb'
 
 class TestKataAgain < Minitest:: Test
 
-	def test_create_variable_number_set_to_1
-		number = 1
-		assert_equal(1, kata_again(number))
+	def test_1_returns_1
+		assert_equal(1, kata_again(1))
 	end
 
-	def test_adding_from_1_to_100
-		number = 1
-		assert_equal(100, kata_again(number))
-	end	
-		
+	def test_2_returns_2
+		assert_equal(1, kata_again(1))
 	end
+
+	def test_3_returns_mined
+		assert_equal('mined', kata_again(3))
+	end
+
+	def test_5_returns_minds
+		assert_equal('minds', kata_again(5))
+	end	
+
+	def test_15_returns_minedminds
+		assert_equal('mined minds', kata_again(15))
+	end
+
+end
