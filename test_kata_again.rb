@@ -8,5 +8,9 @@ class TestKataAgain < Minitest:: Test
 		assert_equal(1, kata_again(number))
 	end
 
+	def test_adding_from_1_to_100
+		number = 1
+		assert_equal(100, kata_again(number))
+	end	
 		
 	end
