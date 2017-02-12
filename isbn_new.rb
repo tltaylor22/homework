@@ -5,3 +5,7 @@ def isbn10_length?(isbn_num)
 		false
 	end
 end
+
+def isbn_remove_spaces_dashes(isbn_num)
+	isbn_num.delete!(' ' '-')
+end
