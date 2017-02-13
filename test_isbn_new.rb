@@ -27,6 +27,15 @@ class TestIsbnNew < Minitest::Test
 		assert_equal('1234567890', isbn_remove_spaces_dashes(isbn_num))
 	end
 
+	def test_only_digits_true
+		isbn_num = '1234567890'
+		assert_equal(true, isbn_only_digits(isbn_num))
+	end
+
+	def test_only_digits_false
+		isbn_num = '123&456m970'
+		assert_equal(false, isbn_only_digits(isbn_num))
+	end
 
 end
 
