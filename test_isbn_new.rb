@@ -29,13 +29,37 @@ class TestIsbnNew < Minitest::Test
 
 	def test_only_digits_true
 		isbn_num = '1234567890'
-		assert_equal(true, isbn_only_digits(isbn_num))
+		assert_equal(true, isbn_only_digits?(isbn_num))
 	end
 
-	def test_only_digits_false
-		isbn_num = '123&456m970'
-		assert_equal(false, isbn_only_digits(isbn_num))
+	# def test_only_digits_false
+	# 	isbn_num = '123&456m97'
+	# 	assert_equal(false, isbn_only_digits?(isbn_num))
+	# end
+
+	def test_if_X_or_num_last_true
+		isbn_num = '877195869x'
+		assert_equal(true, check_for_x_last?(isbn_num))
 	end
 
+	def test_if_X_or_num_last_false
+		isbn_num = '877195869%'
+		assert_equal(false, check_for_x_last?(isbn_num))
+	end
+
+	def test_string_convert_to_array
+		isbn_num = '877195869x'
+		assert_equal(["8", "7", "7", "1", "9", "5", "8", "6", "9", "x"], isbn_array(isbn_num))
+	end
+
+	def test_multiply_array_by_index_position
+		isbn_num = '877195869x'
+		assert_equal([8,14,21,4,45,30,56,48,81], multiply_isbn(isbn_num))
+	end
+
+	def test_add_value_index_totals
+		isbn_array = ([8, 7, 7, 1, 9, 5, 8, 6, 9, 0])
+		assert_equal(60, isbn10_sum(isbn_array))
+	end
 end
 
