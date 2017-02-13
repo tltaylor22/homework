@@ -61,5 +61,10 @@ class TestIsbnNew < Minitest::Test
 		isbn_array = ([8, 7, 7, 1, 9, 5, 8, 6, 9, 0])
 		assert_equal(60, isbn10_sum(isbn_array))
 	end
+
+	def test_return_mod_11_0
+		isbn10_sum = 11
+		assert_equal(0, remainder(isbn10_sum))
+	end
 end
 

@@ -50,3 +50,7 @@ def isbn10_sum(isbn_array)
 	counter
 end
 
+def remainder(isbn10_sum)
+	isbn10_sum % 11
+end
+
