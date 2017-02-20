@@ -11,10 +11,10 @@ def isbn_remove_spaces_dashes(isbn_num)
 end
 
 def isbn_only_digits?(isbn_num)
-	if isbn_num.chop.match(/[0-9]/)
-		true
-	else
+	if isbn_num.chop.match(/[^0-9]/)
 		false
+	else
+		true
 	end
 end
 
@@ -54,3 +54,20 @@ def remainder(isbn10_sum)
 	isbn10_sum % 11
 end
 
+def compare_remainder_to_check?(isbn_num)
+	isbn_value = multiply_isbn(isbn_num)
+	isbn_total = isbn10_sum(isbn_value)
+	isbn_mod = remainder(isbn_total)
+
+		if isbn_mod == 10 && isbn_num[-1].match(/[xX]/)
+			true
+		elsif 
+			isbn_num[-1].to_i == isbn_mod
+				true
+			else
+				false
+		end
+	end
+
+
+					

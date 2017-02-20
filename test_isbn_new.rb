@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'isbn_new.'
+require_relative 'isbn_new.rb'
 
 class TestIsbnNew < Minitest::Test
 
@@ -32,10 +32,10 @@ class TestIsbnNew < Minitest::Test
 		assert_equal(true, isbn_only_digits?(isbn_num))
 	end
 
-	# def test_only_digits_false
-	# 	isbn_num = '123&456m97'
-	# 	assert_equal(false, isbn_only_digits?(isbn_num))
-	# end
+	def test_only_digits_false
+		isbn_num = '123&456m97'
+		assert_equal(false, isbn_only_digits?(isbn_num))
+	end
 
 	def test_if_X_or_num_last_true
 		isbn_num = '877195869x'
@@ -62,9 +62,24 @@ class TestIsbnNew < Minitest::Test
 		assert_equal(60, isbn10_sum(isbn_array))
 	end
 
-	def test_return_mod_11_0
+	def test_return_mod_11_equals_0
 		isbn10_sum = 11
 		assert_equal(0, remainder(isbn10_sum))
 	end
+
+	def test_return_mod_11_equals_1
+		isbn10_sum = 232
+		assert_equal(1, remainder(isbn10_sum))
+	end
+
+	def test_if_remainder_equals_checkdigit_true
+		isbn_num = '0471958697'
+		assert_equal(true, compare_remainder_to_check?(isbn_num))
+	end
+
+	def test_if_remainder_equals_checkdigit_false
+		isbn_num = '877&95869x'
+		assert_equal(false, compare_remainder_to_check?(isbn_num))
+	end	
 end
 
